@@ -14,6 +14,7 @@ import FirebaseFirestoreInternal
 struct MainView: View {
     
     // MARK: - Properties
+    @EnvironmentObject var vm: ViewModel
     @FirestoreQuery(collectionPath: "shop") var items: [Product]
     var columns = Array(repeating: GridItem(), count: 2)
     
@@ -55,4 +56,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(ViewModel())
 }
