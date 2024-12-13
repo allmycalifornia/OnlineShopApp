@@ -11,6 +11,7 @@ import FirebaseFirestoreCombineSwift
 
 struct CartView: View {
     
+    @EnvironmentObject var vm: ViewModel
     @FirestoreQuery(collectionPath: "shop") private var items: [Product]
     
     var body: some View {
@@ -21,7 +22,7 @@ struct CartView: View {
                 }
             }
 
-            Text("Total: ")
+            Text("Total: \(vm.totalPrice) USD")
                 .titleFont()
                 .padding(.bottom)
             
@@ -37,4 +38,5 @@ struct CartView: View {
 
 #Preview {
     CartView()
+        .environmentObject(ViewModel())
 }
