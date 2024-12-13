@@ -14,9 +14,31 @@ final class ViewModel: ObservableObject {
     private let db = Firestore.firestore().collection("shop")
     
     // MARK: - Methods
-    func toggleFavorite(product: Product) {
+    private func updateItem(product: Product, data: [String: Any]) {
         guard let id = product.id else { return }
-        db.document(id).updateData(["isFavorite": !product.isFavorite])
+        db.document(id).updateData(data)
     }
     
+    func toggleFavorite(product: Product) {
+        updateItem(product: product, data: ["isFavorite": !product.isFavorite])
+    }
+    
+    func addToCart(product: Product) {
+        updateItem(product: product, data: ["quantityInCart": 1])
+    }
+ 
+    func removeFromCart(product: Product) {
+        updateItem(product: product, data: ["quantityInCart": 0])
+    }
+    
+    func increaseQuantity(product: Product) {
+        let newQuantity = (product.quantityInCart ?? 0) + 1
+        updateItem(product: product, data: ["quantityInCart": newQuantity])
+    }
+    
+    func decreaseQuantity(product: Product) {
+        let currentQuantity = product.quantityInCart ?? 0
+        let newQuantity = max(currentQuantity - 1, 1)
+        updateItem(product: product, data: ["quantityInCart": newQuantity])
+    }
 }
