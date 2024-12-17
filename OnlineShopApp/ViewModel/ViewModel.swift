@@ -1,9 +1,3 @@
-//
-//  ViewModel.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 10.12.2024.
-//
 
 import SwiftUI
 import FirebaseFirestore
@@ -11,7 +5,7 @@ import FirebaseFirestore
 final class ViewModel: ObservableObject {
     
     // MARK: - Properties
-    private let db = Firestore.firestore().collection("shop")
+    private let db = Firestore.firestore().collection(Helper.Firebase.shop)
     @Published var cartItems: [Product] = []
     
     var cartItemCount: Int {
@@ -42,25 +36,25 @@ final class ViewModel: ObservableObject {
     }
     
     func toggleFavorite(product: Product) {
-        updateItem(product: product, data: ["isFavorite": !product.isFavorite])
+        updateItem(product: product, data: [Helper.Firebase.isFavorite: !product.isFavorite])
     }
     
     func addToCart(product: Product) {
-        updateItem(product: product, data: ["quantityInCart": 1])
+        updateItem(product: product, data: [Helper.Firebase.quantityInCart: 1])
     }
  
     func removeFromCart(product: Product) {
-        updateItem(product: product, data: ["quantityInCart": 0])
+        updateItem(product: product, data: [Helper.Firebase.quantityInCart: 0])
     }
     
     func increaseQuantity(product: Product) {
         let newQuantity = (product.quantityInCart ?? 0) + 1
-        updateItem(product: product, data: ["quantityInCart": newQuantity])
+        updateItem(product: product, data: [Helper.Firebase.quantityInCart: newQuantity])
     }
     
     func decreaseQuantity(product: Product) {
         let currentQuantity = product.quantityInCart ?? 0
         let newQuantity = max(currentQuantity - 1, 1)
-        updateItem(product: product, data: ["quantityInCart": newQuantity])
+        updateItem(product: product, data: [Helper.Firebase.quantityInCart: newQuantity])
     }
 }

@@ -21,7 +21,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8EAB88AF2D07134700E05A2B /* OnlineShopApp */ = {
+		8E7F2CB12D1166E3003837CD /* OnlineShopApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = OnlineShopApp;
 			sourceTree = "<group>";
@@ -56,7 +56,7 @@
 		8EAB88A42D07134700E05A2B = {
 			isa = PBXGroup;
 			children = (
-				8EAB88AF2D07134700E05A2B /* OnlineShopApp */,
+				8E7F2CB12D1166E3003837CD /* OnlineShopApp */,
 				8E89BC0B2D0730D7003CF1DC /* Frameworks */,
 				8EAB88AE2D07134700E05A2B /* Products */,
 			);
@@ -86,7 +86,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8EAB88AF2D07134700E05A2B /* OnlineShopApp */,
+				8E7F2CB12D1166E3003837CD /* OnlineShopApp */,
 			);
 			name = OnlineShopApp;
 			packageProductDependencies = (

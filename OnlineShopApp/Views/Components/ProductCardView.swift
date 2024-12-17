@@ -1,9 +1,3 @@
-//
-//  ProductCardView.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 10.12.2024.
-//
 
 import SwiftUI
 
@@ -11,6 +5,8 @@ struct ProductCardView: View {
     
     @EnvironmentObject var vm: ViewModel
     let product: Product
+    let padding: CGFloat = 10
+    let cornerRadius: CGFloat = 10
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,8 +20,8 @@ struct ProductCardView: View {
                         Button {
                             vm.toggleFavorite(product: product)
                         } label: {
-                            Image(systemName: "heart.fill")
-                                .padding(10)
+                            Image(systemName: Helper.Image.heart)
+                                .padding(padding)
                                 .foregroundColor(product.isFavorite ? .red : .white)
                                 .background(.black)
                                 .clipShape(Circle())
@@ -42,11 +38,11 @@ struct ProductCardView: View {
                     Text("$\(product.price)")
                         .subTitle()
                 }
-                .padding(10)
+                .padding(padding)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(.background.opacity(0.5))
-                .cornerRadius(10)
-                .padding(10)
+                .cornerRadius(cornerRadius)
+                .padding(padding)
             }
         }
         .frame(height: UIScreen.main.bounds.width * 0.7)

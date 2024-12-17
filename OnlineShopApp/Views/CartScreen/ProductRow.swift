@@ -1,27 +1,25 @@
-//
-//  ProductRow.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 13.12.2024.
-//
 
 import SwiftUI
 
 struct ProductRow: View {
     
     let product: Product
+    let imageSize: CGFloat = 100
+    let spacing: CGFloat = 20
+    let padding: CGFloat = 10
+    let cornerRadius: CGFloat = 20
     
     var body: some View {
         ZStack(alignment: .trailing) {
-            HStack(spacing: 20) {
+            HStack(spacing: spacing) {
                 
                 // MARK: Image
                 if let url = URL(string: product.image) {
-                    CardImageView(url: url, width: 100, height: 100)
+                    CardImageView(url: url, width: imageSize, height: imageSize)
                 }
                 
                 // MARK: Info
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: spacing) {
                     Text(product.name)
                         .font(.headline)
                         .lineLimit(2)
@@ -37,15 +35,15 @@ struct ProductRow: View {
                 
                 Spacer()
             }
-            .padding(10)
+            .padding(padding)
             .background(.background)
-            .cornerRadius(20)
+            .cornerRadius(cornerRadius)
             
             RemoteControlRowView(product: product)
             
         }
         .shadow(color: .black.opacity(0.1), radius: 7, x: 5, y: 6)
-        .padding(.horizontal, 10)
+        .padding(.horizontal, padding)
     }
 }
 

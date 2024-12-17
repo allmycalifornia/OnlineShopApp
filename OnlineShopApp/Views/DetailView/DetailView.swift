@@ -1,9 +1,3 @@
-//
-//  DetailView.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 13.12.2024.
-//
 
 import SwiftUI
 
@@ -11,12 +5,13 @@ struct DetailView: View {
     
     @EnvironmentObject var vm: ViewModel
     let product: Product
+    let imageHeight = UIScreen.main.bounds.height / 1.7
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             VStack {
                 if let url = URL(string: product.image) {
-                    CardImageView(url: url, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.7)
+                    CardImageView(url: url, width: UIScreen.main.bounds.width, height: imageHeight)
                         .ignoresSafeArea()
                         .shadow(color: .black.opacity(0.3), radius: 10, x: 5, y: 8)
                 }

@@ -12,7 +12,8 @@ import FirebaseFirestoreCombineSwift
 struct CartView: View {
     
     @EnvironmentObject var vm: ViewModel
-    @FirestoreQuery(collectionPath: "shop") private var items: [Product]
+    @FirestoreQuery(collectionPath: Helper.Firebase.shop) private var items: [Product]
+    let hPadding: CGFloat = 30
     
     var body: some View {
         VStack {
@@ -26,12 +27,12 @@ struct CartView: View {
                 .titleFont()
                 .padding(.bottom)
             
-            CustomMainButton(title: "Buy") {
+            CustomMainButton(title: Helper.Buttons.buyButton) {
                 // action
             }
-            .padding(30)
+            .padding(.horizontal, hPadding)
         }
-        .navigationTitle("Cart")
+        .navigationTitle(Helper.Title.titleCart)
         .background(.secondary.opacity(0.3))
     }
 }

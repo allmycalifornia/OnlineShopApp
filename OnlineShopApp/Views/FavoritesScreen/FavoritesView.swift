@@ -1,9 +1,3 @@
-//
-//  FavoritesView.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 10.12.2024.
-//
 
 import SwiftUI
 import FirebaseFirestore
@@ -11,8 +5,9 @@ import FirebaseFirestoreCombineSwift
 
 struct FavoritesView: View {
     
-    @FirestoreQuery(collectionPath: "shop", predicates: [.isEqualTo("isFavorite", true)]) private var favoritesItems: [Product]
+    @FirestoreQuery(collectionPath: Helper.Firebase.shop, predicates: [.isEqualTo(Helper.Firebase.isFavorite, true)]) private var favoritesItems: [Product]
     var columns = Array(repeating: GridItem(), count: 2)
+    let hPadding: CGFloat = 10
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -25,9 +20,9 @@ struct FavoritesView: View {
                 }
             }
         }
-        .padding(.horizontal, 10)
+        .padding(.horizontal, hPadding)
         .background(.secondary.opacity(0.3))
-        .navigationTitle("Favorites")
+        .navigationTitle(Helper.Title.titleFavorites)
     }
 }
 

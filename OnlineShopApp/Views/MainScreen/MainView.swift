@@ -1,22 +1,15 @@
-//
-//  ContentView.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 09.12.2024.
-//
 
 import SwiftUI
-import FirebaseFirestoreInternalWrapper
 import FirebaseFirestore
 import FirebaseFirestoreCombineSwift
-import FirebaseFirestoreInternal
 
 struct MainView: View {
     
     // MARK: - Properties
     @EnvironmentObject var vm: ViewModel
-    @FirestoreQuery(collectionPath: "shop") var items: [Product]
+    @FirestoreQuery(collectionPath: Helper.Firebase.shop) var items: [Product]
     var columns = Array(repeating: GridItem(), count: 2)
+    let hPadding: CGFloat = 10
     
     // MARK: - Body
     var body: some View {
@@ -31,17 +24,16 @@ struct MainView: View {
                     }
                 }
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, hPadding)
             .background(.secondary.opacity(0.3))
             .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
             
             // MARK: - Navigation Bar
-            .navigationTitle("Products")
+            .navigationTitle(Helper.Title.titleProducts)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(destination: FavoritesView()) {
-                        Image(systemName: "heart.fill")
-                            .font(.title2)
+                        FavoritesButton()
                     }
                     .buttonStyle(.plain)
                 }

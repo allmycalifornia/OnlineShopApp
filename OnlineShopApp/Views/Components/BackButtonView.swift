@@ -1,15 +1,10 @@
-//
-//  BackButtonView.swift
-//  OnlineShopApp
-//
-//  Created by Борис Кравченко on 13.12.2024.
-//
 
 import SwiftUI
 
 struct BackButtonView: View {
     
     @Environment(\.dismiss) var dismiss
+    let circleSize: CGFloat = 34
     
     var body: some View {
         Button {
@@ -17,10 +12,10 @@ struct BackButtonView: View {
         } label: {
             ZStack {
                 Circle()
-                    .frame(width: 34)
+                    .frame(width: circleSize)
                     .foregroundStyle(.black)
                     .opacity(0.3)
-                Image(systemName: "chevron.left")
+                Image(systemName: Helper.Image.chevronLeft)
                     .font(.title3)
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
