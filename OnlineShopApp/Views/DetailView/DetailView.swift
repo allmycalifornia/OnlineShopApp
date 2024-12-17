@@ -9,18 +9,32 @@ struct DetailView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            VStack {
+            VStack(spacing: 0) {
                 if let url = URL(string: product.image) {
                     CardImageView(url: url, width: UIScreen.main.bounds.width, height: imageHeight)
                         .ignoresSafeArea()
                         .shadow(color: .black.opacity(0.3), radius: 10, x: 5, y: 8)
+                        .padding(.bottom, -70)
                 }
                 DetailInfoView(product: product)
             }
             .background(.secondary.opacity(0.3))
             .navigationBarBackButtonHidden()
-            BackButtonView()
-                .padding(.leading)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: CartView()) {
+                        CartButton(numberOfProducts: vm.cartItemCount)
+                    }
+                    .buttonStyle(.plain)
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink(destination: MainView()) {
+                        BackButtonView()
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
         }
     }
 }

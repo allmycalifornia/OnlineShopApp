@@ -17,15 +17,17 @@ struct DetailInfoView: View {
                 Text("$\(product.price)")
                     .titleFont()
             }
+            .padding(.bottom, 5)
             
-            Text(product.description)
-                .subTitle()
-                .fixedSize(horizontal: false, vertical: true)
-                .lineLimit(6)
+            ScrollView(.vertical, showsIndicators: false) {
+                Text(product.description)
+                    .subTitle()
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             
             Spacer()
             
-            CustomMainButton(title: "Add to cart") {
+            CustomMainButton(title: Helper.Buttons.AddToCartButton) {
                 vm.addToCart(product: product)
             }
         }
