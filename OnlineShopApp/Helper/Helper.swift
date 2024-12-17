@@ -26,5 +26,7 @@ enum Helper {
     enum Buttons {
         static let buyButton = "Buy"
         static let AddToCartButton = "Add to cart"
+        static let RemoveFromCartButton = "Remove from Cart"
+        static let GoToCartButton = "Go to Cart"
     }
 }

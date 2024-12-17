@@ -11,6 +11,8 @@ struct CustomMainButton: View {
             action()
         } label: {
             Text(title)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
                 .frame(maxWidth: .infinity)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
