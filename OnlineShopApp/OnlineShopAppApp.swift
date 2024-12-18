@@ -1,4 +1,3 @@
-
 import SwiftUI
 import Firebase
 import FirebaseMessaging
@@ -10,8 +9,10 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        // Запрос разрешения на отправку уведомлений
+        // Устанавливаем делегата центра уведомлений
         UNUserNotificationCenter.current().delegate = self
+        
+        // Запрашиваем разрешения для уведомлений
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if let error = error {
                 print("Error requesting notifications authorization: \(error)")
@@ -25,8 +26,21 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             UIApplication.shared.registerForRemoteNotifications()
         }
         
+        // Первоначальный сброс badge
+        resetBadgeCount()
+        
         Messaging.messaging().delegate = self
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Сбрасываем badge при возвращении приложения в активное состояние
+        resetBadgeCount()
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Сбрасываем badge при переходе приложения из фонового режима
+        resetBadgeCount()
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -41,15 +55,22 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                  willPresent notification: UNNotification,
                                  withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-
-        center.setBadgeCount(0) { error in
-                    if let error = error {
-                        print("Failed to reset badge count: \(error)")
-                    } else {
-                        print("Badge count reset successfully")
-                    }
-                }
+        // Сбрасываем badge при получении уведомления
+        resetBadgeCount()
+        
+        // Отображаем уведомление в приложении
         completionHandler([.banner, .sound, .badge])
+    }
+    
+    // Сбрасываем badge через UNUserNotificationCenter
+    private func resetBadgeCount() {
+        UNUserNotificationCenter.current().setBadgeCount(0) { error in
+            if let error = error {
+                print("Failed to reset badge count: \(error)")
+            } else {
+                print("Badge count reset successfully")
+            }
+        }
     }
 }
 
