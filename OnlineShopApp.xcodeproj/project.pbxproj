@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E16FFC72D12A1E300C7C128 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8E16FFC62D12A1E300C7C128 /* FirebaseDatabase */; };
+		8E16FFC92D12A1E300C7C128 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8E16FFC82D12A1E300C7C128 /* FirebaseMessaging */; };
+		8E16FFCB2D12A1E300C7C128 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8E16FFCA2D12A1E300C7C128 /* FirebaseStorage */; };
 		8E89BC0D2D0730D7003CF1DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8E89BC0C2D0730D7003CF1DC /* FirebaseFirestore */; };
 		8E89BC0F2D07335E003CF1DC /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8E89BC0E2D07335E003CF1DC /* FirebaseFirestoreCombine-Community */; };
 		8EAB88DD2D071B3900E05A2B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8EAB88DC2D071B3900E05A2B /* FirebaseAnalytics */; };
@@ -20,9 +23,22 @@
 		8EAB88AD2D07134700E05A2B /* OnlineShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8E16FFC52D129FAA00C7C128 /* Exceptions for "OnlineShopApp" folder in "OnlineShopApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8EAB88AC2D07134700E05A2B /* OnlineShopApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8E7F2CB12D1166E3003837CD /* OnlineShopApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8E16FFC52D129FAA00C7C128 /* Exceptions for "OnlineShopApp" folder in "OnlineShopApp" target */,
+			);
 			path = OnlineShopApp;
 			sourceTree = "<group>";
 		};
@@ -33,12 +49,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E16FFC92D12A1E300C7C128 /* FirebaseMessaging in Frameworks */,
 				8EAB88E32D071B3900E05A2B /* FirebaseAppCheck in Frameworks */,
 				8EAB88DD2D071B3900E05A2B /* FirebaseAnalytics in Frameworks */,
+				8E16FFCB2D12A1E300C7C128 /* FirebaseStorage in Frameworks */,
 				8EAB88E52D071B3900E05A2B /* FirebaseAppDistribution-Beta in Frameworks */,
 				8EAB88E12D071B3900E05A2B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				8EAB88DF2D071B3900E05A2B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				8E89BC0D2D0730D7003CF1DC /* FirebaseFirestore in Frameworks */,
+				8E16FFC72D12A1E300C7C128 /* FirebaseDatabase in Frameworks */,
 				8E89BC0F2D07335E003CF1DC /* FirebaseFirestoreCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +116,9 @@
 				8EAB88E42D071B3900E05A2B /* FirebaseAppDistribution-Beta */,
 				8E89BC0C2D0730D7003CF1DC /* FirebaseFirestore */,
 				8E89BC0E2D07335E003CF1DC /* FirebaseFirestoreCombine-Community */,
+				8E16FFC62D12A1E300C7C128 /* FirebaseDatabase */,
+				8E16FFC82D12A1E300C7C128 /* FirebaseMessaging */,
+				8E16FFCA2D12A1E300C7C128 /* FirebaseStorage */,
 			);
 			productName = OnlineShopApp;
 			productReference = 8EAB88AD2D07134700E05A2B /* OnlineShopApp.app */;
@@ -284,12 +306,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OnlineShopApp/OnlineShopApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnlineShopApp/Preview Content\"";
 				DEVELOPMENT_TEAM = JVA85S2MQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnlineShopApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OnlineShop App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -320,12 +344,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OnlineShopApp/OnlineShopApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnlineShopApp/Preview Content\"";
 				DEVELOPMENT_TEAM = JVA85S2MQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnlineShopApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OnlineShop App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -386,6 +412,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8E16FFC62D12A1E300C7C128 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EAB88DB2D071B3900E05A2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		8E16FFC82D12A1E300C7C128 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EAB88DB2D071B3900E05A2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		8E16FFCA2D12A1E300C7C128 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EAB88DB2D071B3900E05A2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		8E89BC0C2D0730D7003CF1DC /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8EAB88DB2D071B3900E05A2B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
